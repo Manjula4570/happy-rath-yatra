@@ -125,8 +125,8 @@
     <div class="container">
         <h1 id="greetingMessage">Rath Yatra Wishes!</h1>
 
-        <img id="mainImage" src="data:image/jpeg;base64,a2f98bad461ab42768d9ebc8b362e36c.jpg" alt="Rath Yatra">
-        <!-- Convert your image (a2f98bad461ab461ab42768d9abc8b362e36c) to Base64 -->
+        <img id="mainImage" src="WhatsApp Image 2025-05-31 at 5.28.51 PM.jpeg" alt="Rath Yatra">
+        <!-- Convert your image (WhatsApp Image 2025-05-31 at 5.28.51 PM.jpeg) to Base64 -->
         <!-- and replace 'a2f98bad461ab42768d9ebc8b362e36c.jpg' with it. -->
         <!-- Ensure 'data:image/jpeg;base64,' or 'data:image/png;base64,' is correct for your image type. -->
 

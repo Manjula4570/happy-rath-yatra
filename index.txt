@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,9 +126,9 @@
     <div class="container">
         <h1 id="greetingMessage">Rath Yatra Wishes!</h1>
 
-        <img id="mainImage" src="WhatsApp Image 2025-05-31 at 5.28.51 PM.jpeg" alt="Rath Yatra">
-        <!-- Convert your image (WhatsApp Image 2025-05-31 at 5.28.51 PM.jpeg) to Base64 -->
-        <!-- and replace 'a2f98bad461ab42768d9ebc8b362e36c.jpg' with it. -->
+        <img id="mainImage" src="data:image/jpeg;base64,PLACEHOLDER_FOR_YOUR_IMAGE_BASE64_STRING" alt="Rath Yatra">
+        <!-- Convert your image (a2f98bad461ab461ab42768d9abc8b362e36c) to Base64 -->
+        <!-- and replace 'PLACEHOLDER_FOR_YOUR_IMAGE_BASE64_STRING' with it. -->
         <!-- Ensure 'data:image/jpeg;base64,' or 'data:image/png;base64,' is correct for your image type. -->
 
         <div class="input-area">
@@ -146,9 +147,9 @@
 
     <audio id="backgroundMusic" loop>
         <!-- Convert a small royalty-free religious audio (MP3) to Base64 -->
-        <!-- and replace 'SmF5IEphZ2FubmF0aCBhMmY5OGJhZDQ2MWFiNDI3NjhkOWViYzhiMzYyZTM2Yy5qcGc=' with it. -->
+        <!-- and replace 'PLACEHOLDER_FOR_YOUR_AUDIO_BASE64_STRING' with it. -->
         <!-- Or link to a small royalty-free audio file here if not using Base64 for audio. -->
-        <source src="data:audio/mpeg;base64,SmF5IEphZ2FubmF0aCBhMmY5OGJhZDQ2MWFiNDI3NjhkOWViYzhiMzYyZTM2Yy5qcGc=" type="audio/mpeg">
+        <source src="data:audio/mpeg;base64,PLACEHOLDER_FOR_YOUR_AUDIO_BASE64_STRING" type="audio/mpeg">
         <!-- Example of a very short silent MP3 Base64 (replace with actual music):
         <source src="data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBDb21tbUNITYAAAADEAAAP4LAMSAAAAAAEAAADVAQEABAAAAAAAAAAAAQAAAAAAAABDTEFQU0VAAAAPAAAAAwAAAAPP8AAAAAABEQBTVEsAAAAuAAAAAwAAAE1BVoAAAAAAACAAAE1DNAAAAAAADBMAAAABAAAAAAAAAAAFEbwAAAAAAAAvERBEAwAAAgAAAwAAMASAcJz/PkAAAAgAAAAAAAAAADAgCAIAAABAEAAAACAAAEAEAAAAAAABAAAAAQAAAAAAAAAAAABRTEFNUwAAAAMAAAARAAAAAaAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEUAAAACAAAAAEEAAQAAHAF///4AAAAAAA==" type="audio/mpeg"> -->
         Your browser does not support the audio element.
@@ -178,7 +179,7 @@
                 const charSpan = document.createElement('span');
                 charSpan.className = 'animated-text-char';
                 charSpan.textContent = text[i] === ' ' ? '\u00A0' : text[i]; // Use non-breaking space for spaces
-                charSpan.style.animationDelay = `${delay}s`;
+                charSpan.style.animationDelay = ${delay}s;
                 element.appendChild(charSpan);
                 delay += 0.05; // Slight delay between each character
             }
@@ -191,7 +192,7 @@
 
             if (senderName) {
                 const decodedSenderName = decodeURIComponent(senderName);
-                initialGreeting = `Jai Jagannath! Happy Rath Yatra! From ${decodedSenderName}.`;
+                initialGreeting = Jai Jagannath! Happy Rath Yatra! From ${decodedSenderName}.;
                 // Try to play music automatically when someone arrives via a link
                 // This might not always work due to browser policies; user interaction might be needed
                 playMusicWithInteraction();
@@ -232,13 +233,13 @@
 
             const encodedUserName = encodeURIComponent(userName);
             const baseLink = window.location.href.split('?')[0]; // Base part of the current URL
-            const shareableLink = `${baseLink}?sender=${encodedUserName}`;
+            const shareableLink = ${baseLink}?sender=${encodedUserName};
 
             generatedLinkInput.value = shareableLink;
 
             // WhatsApp share message
-            const whatsappMessage = `🎉 Happy Rath Yatra! From ${userName}. 🙏\n\nClick to see this special message:\n${shareableLink}`;
-            whatsappShareLink.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
+            const whatsappMessage = 🎉 Happy Rath Yatra! From ${userName}. 🙏\n\nClick to see this special message:\n${shareableLink};
+            whatsappShareLink.href = https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)};
 
             shareSection.style.display = 'block';
             if (backgroundMusic.paused) { // If music is paused, try to play it when the link is first generated
@@ -260,4 +261,5 @@
     </script>
 </body>
 </html>
-<script type='text/javascript' src='//pl26830183.profitableratecpm.com/c5/1f/74/c51f742f532112f401cde93285ece8ea.js'></script>
+<script async="async" data-cfasync="false" src="//pl26214361.profitableratecpm.com/be357bf91760d442990ce3121a3a6857/invoke.js"></script>
+<div id="container-be357bf91760d442990ce3121a3a6857"></div>

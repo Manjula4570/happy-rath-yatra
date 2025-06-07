@@ -1,272 +1,295 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rath Yatra Wishes</title>
+    <title>Happy Rath Yatra Wishes</title>
     <style>
+        /* --- Basic Styles & Thematic Design --- */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #FFDEAD; /* Navajowhite - a light, somewhat traditional color */
-            color: #5C3317; /* Dark Brown */
             margin: 0;
-            padding: 20px;
-            text-align: center;
-            overflow-x: hidden; /* For animations */
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #FF9933, #FF6600, #DAA520);
+            color: white;
+            overflow-x: hidden; /* Prevents horizontal scroll */
         }
+
         .container {
-            background-color: #FFF8DC; /* Cornsilk */
-            border: 2px solid #FF8C00; /* DarkOrange */
-            border-radius: 15px;
-            padding: 20px;
             max-width: 600px;
             margin: 20px auto;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            z-index: 10;
         }
-        #mainImage {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 3px solid #DAA520; /* Goldenrod */
-        }
-        .input-area input[type="text"] {
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #FF8C00;
-            border-radius: 5px;
-            width: calc(100% - 22px);
-            box-sizing: border-box;
-        }
-        .input-area button, .whatsapp-button {
-            background-color: #FF7F50; /* Coral */
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            margin-top: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        .input-area button:hover, .whatsapp-button:hover {
-            background-color: #FF6347; /* Tomato */
-        }
-        #greetingMessage {
-            font-size: 1.8em;
+
+        /* --- Greeting Message & Animations --- */
+        .wishes-header {
+            display: none; /* Hidden by default */
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
             font-weight: bold;
-            color: #D2691E; /* Chocolate */
-            margin-bottom: 15px;
-            min-height: 50px; /* Space for animation */
+            text-shadow: 2px 2px 8px #000;
+            animation: fadeInDown 1.5s ease-out;
         }
-        #shareSection {
+
+        .from-name {
+            display: none; /* Hidden by default */
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-top: 10px;
+            color: #FFFF99;
+            animation: fadeInUp 1.5s 0.5s ease-out backwards;
+        }
+
+        /* --- Main Image --- */
+        .main-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
             margin-top: 20px;
+            border: 5px solid #DAA520;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        /* --- Name Input & Button --- */
+        .input-area {
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .input-area p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        #nameInput {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #DAA520;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        #generateBtn {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        #generateBtn:hover {
+            background-color: #45a049;
+        }
+        
+        /* --- Generated Link Display --- */
+        #link-display {
+            margin-top: 20px;
+            display: none; /* Hidden by default */
+        }
+        #generatedLink {
+            width: 90%;
             padding: 10px;
-            background-color: #FFFACD; /* LemonChiffon */
-            border: 1px dashed #FFD700; /* Gold */
+            border: 1px dashed #fff;
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            word-wrap: break-word; /* To break long links */
             border-radius: 5px;
         }
-        #shareSection input[type="text"] {
-            width: calc(100% - 100px);
-            padding: 8px;
-            margin-right: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        #shareSection button {
-            padding: 8px 10px;
-        }
-        .whatsapp-button {
-            display: inline-block;
-            background-color: #25D366; /* WhatsApp Green */
-            text-decoration: none;
-            margin-left: 10px;
-        }
-        .whatsapp-button:hover {
-            background-color: #128C7E;
+
+        /* --- Animation Keyframes --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Animation */
-        .animated-text-char {
-            display: inline-block;
-            opacity: 0;
-            animation: fadeInChar 0.2s forwards;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeInChar {
-            to {
+        /* --- Firecracker Effect --- */
+        #fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none; /* Allows clicking through it */
+            z-index: 1;
+        }
+        
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            opacity: 1;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
                 opacity: 1;
             }
+            100% {
+                transform: scale(30);
+                opacity: 0;
+            }
         }
-
-        /* Religious elements - example */
-        body::before {
-            content: "ॐ"; /* Om symbol */
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            font-size: 2em;
-            color: rgba(255, 140, 0, 0.5); /* DarkOrange with alpha */
-            z-index: -1;
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 640px) {
+            .wishes-header {
+                font-size: 2em;
+            }
+            .from-name {
+                font-size: 1.5em;
+            }
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
         }
-        body::after {
-            content: "卐"; /* Swastika - if font supports it */
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            font-size: 2em;
-            color: rgba(255, 140, 0, 0.5);
-            z-index: -1;
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1 id="greetingMessage">Rath Yatra Wishes!</h1>
-
-        <img id="mainImage" src="WhatsApp Image 2025-05-31 at 5.28.51 PM.jpeg" alt="Rath Yatra">
-        <!-- Convert your image (WhatsApp Image 2025-05-31 at 5.28.51 PM.jpeg) to Base64 -->
-        <!-- and replace 'a2f98bad461ab42768d9ebc8b362e36c.jpg' with it. -->
-        <!-- Ensure 'data:image/jpeg;base64,' or 'data:image/png;base64,' is correct for your image type. -->
-
-        <div class="input-area">
-            <label for="nameInput">Your Good Name:</label>
-            <input type="text" id="nameInput" placeholder="Enter your name here">
-            <button id="generateLinkButton">Create & Share Greeting</button>
-        </div>
-
-        <div id="shareSection" style="display:none;">
-            <p>Your greeting link is ready:</p>
-            <input type="text" id="generatedLink" readonly>
-            <button id="copyLinkButton">Copy Link</button>
-            <a id="whatsappShareLink" href="#" target="_blank" class="whatsapp-button">Share on WhatsApp</a>
-        </div>
-    </div>
-
-    <audio id="backgroundMusic" loop>
-        <!-- Convert a small royalty-free religious audio (MP3) to Base64 -->
-        <!-- and replace 'SmF5IEphZ2FubmF0aCBhMmY5OGJhZDQ2MWFiNDI3NjhkOWViYzhiMzYyZTM2Yy5qcGc=' with it. -->
-        <!-- Or link to a small royalty-free audio file here if not using Base64 for audio. -->
-        <source src="e6fa3101-156f-4199-9cbc-25012508b684.m4a" type="audio/mpeg">
-        <!-- Example of a very short silent MP3 Base64 (replace with actual music):
-        <source src="e6fa3101-156f-4199-9cbc-25012508b684.m4a" type="audio/mpeg"> -->
+    <!-- Audio to play in background (Note: many browsers require user interaction to play) -->
+    <!-- IMPORTANT: Change 'song.mp3' to your actual audio file name -->
+    <audio id="background-song" loop>
+        <source src="song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- Container for the fireworks animation -->
+    <div id="fireworks-container"></div>
+
+    <div class="container">
+        <!-- This section is shown when someone opens a shared link -->
+        <h1 id="wishesHeader" class="wishes-header">Jay Jagannath!<br>Happy Rath Yatra</h1>
+        <h2 id="fromName" class="from-name"></h2>
+
+        <!-- This is your main image -->
+        <!-- IMPORTANT: Change 'a2f98bad461ab42768d9abc8b362e36c.jpg' to your actual image file name -->
+        <img src="a2f98bad461ab42768d9abc8b362e36c.jpg" alt="Rath Yatra" class="main-image">
+
+        <!-- This section is always visible for creating a new link -->
+        <div class="input-area">
+            <p>Enter your name below and share the wishes with your friends!</p>
+            <input type="text" id="nameInput" placeholder="Enter Your Name Here">
+            <br>
+            <button id="generateBtn">Create My Link</button>
+        </div>
+
+        <!-- This section appears after generating a link -->
+        <div id="link-display">
+            <p>Your link is ready! Copy and share it:</p>
+            <div id="generatedLink"></div>
+        </div>
+    </div>
+
     <script>
-        const nameInput = document.getElementById('nameInput');
-        const generateLinkButton = document.getElementById('generateLinkButton');
-        const greetingMessageElement = document.getElementById('greetingMessage');
-        const shareSection = document.getElementById('shareSection');
-        const generatedLinkInput = document.getElementById('generatedLink');
-        const copyLinkButton = document.getElementById('copyLinkButton');
-        const whatsappShareLink = document.getElementById('whatsappShareLink');
-        const backgroundMusic = document.getElementById('backgroundMusic');
+        // Wait for the page to fully load
+        window.onload = function() {
+            // Get all the necessary elements from the page
+            const nameInput = document.getElementById('nameInput');
+            const generateBtn = document.getElementById('generateBtn');
+            const linkDisplay = document.getElementById('link-display');
+            const generatedLink = document.getElementById('generatedLink');
+            const wishesHeader = document.getElementById('wishesHeader');
+            const fromName = document.getElementById('fromName');
+            const fireworksContainer = document.getElementById('fireworks-container');
+            const backgroundSong = document.getElementById('background-song');
 
-        // Function to get URL parameters
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // Function to animate text
-        function animateText(element, text) {
-            element.innerHTML = ''; // Clear previous text
-            let delay = 0;
-            for (let i = 0; i < text.length; i++) {
-                const charSpan = document.createElement('span');
-                charSpan.className = 'animated-text-char';
-                charSpan.textContent = text[i] === ' ' ? '\u00A0' : text[i]; // Use non-breaking space for spaces
-                charSpan.style.animationDelay = ${delay}s;
-                element.appendChild(charSpan);
-                delay += 0.05; // Slight delay between each character
+            // --- Function to play audio on first user click ---
+            function playAudio() {
+                backgroundSong.play().catch(error => {
+                    // Autoplay was prevented. This is normal in modern browsers.
+                    console.log("Audio playback failed:", error);
+                });
+                // Remove the listener so it only runs once
+                document.body.removeEventListener('click', playAudio);
             }
-        }
-        
-        // On page load
-        window.onload = () => {
-            const senderName = getQueryParam('sender');
-            let initialGreeting = "Happy Rath Yatra!"; // Default greeting
+            // Add a listener to the whole page to play audio on the first click
+            document.body.addEventListener('click', playAudio);
+
+            // --- Check URL for a name parameter ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const senderName = urlParams.get('name');
 
             if (senderName) {
-                const decodedSenderName = decodeURIComponent(senderName);
-                initialGreeting = Jai Jagannath! Happy Rath Yatra! From ${decodedSenderName}.;
-                // Try to play music automatically when someone arrives via a link
-                // This might not always work due to browser policies; user interaction might be needed
-                playMusicWithInteraction();
-            }
-            animateText(greetingMessageElement, initialGreeting);
+                // If a name is found in the URL, display the greeting
+                wishesHeader.style.display = 'block';
+                fromName.style.display = 'block';
+                fromName.textContent = `From: ${decodeURIComponent(senderName)}`;
 
-            // If on GitHub Pages and no interaction yet, music might not play.
-            // Attempt to play music once the user clicks anywhere on the body.
-            document.body.addEventListener('click', playMusicOnce, { once: true });
+                // Start the firecracker effect
+                setInterval(createFirework, 300);
+            }
+
+            // --- Generate Link Button Logic ---
+            generateBtn.addEventListener('click', function() {
+                const enteredName = nameInput.value.trim();
+                if (enteredName === "") {
+                    alert("Please enter your name!");
+                    return;
+                }
+
+                // Encode the name to make it safe for a URL
+                const encodedName = encodeURIComponent(enteredName);
+                
+                // Get the base URL (without any existing parameters)
+                const baseUrl = window.location.href.split('?')[0];
+                
+                // Create the new shareable link
+                const newLink = `${baseUrl}?name=${encodedName}`;
+
+                // Display the generated link
+                generatedLink.textContent = newLink;
+                linkDisplay.style.display = 'block';
+            });
+            
+            // --- Firecracker Effect Function ---
+            function createFirework() {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                
+                // Randomize position and color
+                firework.style.left = Math.random() * 100 + 'vw';
+                firework.style.top = Math.random() * 100 + 'vh';
+                firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+                fireworksContainer.appendChild(firework);
+
+                // Remove the firework element after the animation ends to keep the page clean
+                setTimeout(() => {
+                    firework.remove();
+                }, 1000); // 1000ms = 1s (matches animation duration)
+            }
         };
-
-        function playMusicOnce() {
-            if (backgroundMusic.paused) {
-                backgroundMusic.play().catch(e => console.log("Autoplay_music_blocked_by_browser:", e));
-            }
-        }
-        
-        function playMusicWithInteraction() {
-            // Browsers may require user interaction to play audio
-            const promise = backgroundMusic.play();
-            if (promise !== undefined) {
-                promise.then(_ => {
-                    // Autoplay started
-                }).catch(error => {
-                    // Autoplay was prevented.
-                    console.log("Music autoplay was prevented:", error);
-                    // You could show a "Play Music" button here
-                });
-            }
-        }
-
-        generateLinkButton.addEventListener('click', () => {
-            const userName = nameInput.value.trim();
-            if (!userName) {
-                alert("Please enter your name.");
-                return;
-            }
-
-            const encodedUserName = encodeURIComponent(userName);
-            const baseLink = window.location.href.split('?')[0]; // Base part of the current URL
-            const shareableLink = ${baseLink}?sender=${encodedUserName};
-
-            generatedLinkInput.value = shareableLink;
-
-            // WhatsApp share message
-            const whatsappMessage = 🎉 Happy Rath Yatra! From ${userName}. 🙏\n\nClick to see this special message:\n${shareableLink};
-            whatsappShareLink.href = https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)};
-
-            shareSection.style.display = 'block';
-            if (backgroundMusic.paused) { // If music is paused, try to play it when the link is first generated
-                playMusicWithInteraction();
-            }
-        });
-
-        copyLinkButton.addEventListener('click', () => {
-            generatedLinkInput.select();
-            generatedLinkInput.setSelectionRange(0, 99999); // For mobile devices
-            try {
-                document.execCommand('copy');
-                alert("Link copied!");
-            } catch (err) {
-                alert("Unable to copy link. Please copy it manually.");
-            }
-        });
-
     </script>
+
 </body>
 </html>
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'a8398437c675a8a7fb15f58e7ecf5ff8',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/a8398437c675a8a7fb15f58e7ecf5ff8/invoke.js"></script>
